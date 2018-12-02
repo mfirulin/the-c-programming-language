@@ -47,6 +47,7 @@ void copy(char to[], char from[])
 void reverse(char line[])
 {
     int len, i = 0, j = 0;
+    
     while (line[i])
         ++i;
         

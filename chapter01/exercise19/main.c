@@ -47,6 +47,7 @@ void copy(char to[], char from[])
 void reverse(char line[])
 {
     int len, i = 0, j = 0;
+    char c;
     
     while (line[i])
         ++i;
@@ -55,8 +56,8 @@ void reverse(char line[])
         --i;
 
         len = i / 2;
-        while (j < len) {
-            char c = line[j];
+        while (j <= len) {
+            c = line[j];
             line[j] = line[i];
             line[i] = c;
             ++j;

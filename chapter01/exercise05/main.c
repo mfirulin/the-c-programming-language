@@ -1,20 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define LOWER 0
+#define UPPER 300
+#define STEP 20
+
 int main()
 {
     float fahr, celsius;
-    int lower, upper, step;
-    
-    lower = 0;
-    upper = 300;
-    step = 20;
-    
-    fahr = upper;
     
     printf("FAHR CELSIUS\n");
     
-    for (fahr = upper; fahr >= lower; fahr -= step) {
+    for (fahr = UPPER; fahr >= LOWER; fahr -= STEP) {
         celsius = (5.0 / 9.0) * (fahr - 32.0);
         printf("%4.0f %7.1f\n", fahr, celsius);
     }

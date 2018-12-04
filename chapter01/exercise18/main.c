@@ -41,8 +41,7 @@ void rtrim(char line[])
         ++i;
         
     if (i > 0) {
-        while (i >= 0 && line[i] == '\0')
-            --i;
+        --i;
         
         j = i;
         while (i >= 0 && line[i] == '\n')
@@ -51,13 +50,11 @@ void rtrim(char line[])
         if (j != i)
             nl = 1;
         
-        while (i >= 0 && (line[i] == ' ' || line[i] == '\t')) {
-            printf("%c", line[i]);
+        while (i >= 0 && (line[i] == ' ' || line[i] == '\t'))
             --i;
-            
-        }
         
         i++;
+        
         if (nl)
             line[i++] = '\n';
         

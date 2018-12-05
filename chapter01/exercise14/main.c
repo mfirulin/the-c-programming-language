@@ -3,7 +3,7 @@
 
 #define NCHAR 26
 
-int main()
+int main(void)
 {
     int c;
     int nchar[NCHAR] = {0};

@@ -7,7 +7,7 @@ int getline(char line[], int lim);
 void copy(char to[], char from[]);
 void reverse(char line[]);
 
-int main()
+int main(void)
 {
     char line[MAXLINE], reversed[MAXLINE];
 

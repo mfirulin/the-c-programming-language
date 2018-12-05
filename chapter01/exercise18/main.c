@@ -6,7 +6,7 @@
 int getline(char line[], int lim);
 void rtrim(char line[]);
 
-int main()
+int main(void)
 {
     char line[MAXLINE];
 

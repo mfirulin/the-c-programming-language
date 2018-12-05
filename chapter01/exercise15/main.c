@@ -3,7 +3,7 @@
 
 void fahr_to_celsius(int lower, int upper, int step);
 
-int main()
+int main(void)
 {
     fahr_to_celsius(0, 300, 20);
 

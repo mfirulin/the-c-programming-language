@@ -5,7 +5,7 @@
 #define UPPER 300
 #define STEP 20
 
-int main()
+int main(void)
 {
     float fahr, celsius;
     

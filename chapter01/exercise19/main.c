@@ -4,7 +4,6 @@
 #define MAXLINE 1000
 
 int getline(char line[], int lim);
-void copy(char to[], char from[]);
 void reverse(char line[]);
 
 int main(void)
@@ -12,10 +11,8 @@ int main(void)
     char line[MAXLINE], reversed[MAXLINE];
 
     while (getline(line, MAXLINE) > 0) {
-        copy(reversed, line);
-        reverse(reversed);
+        reverse(line);
         printf("%s", line);
-        printf("%s", reversed);    
     }
         
     return EXIT_SUCCESS;
@@ -34,14 +31,6 @@ int getline(char line[], int lim)
     line[i] = '\0';
     
     return i;
-}
-
-void copy(char to[], char from[])
-{
-    int i = 0;
-    
-    while ((to[i] = from[i]) != '\0')
-        ++i;
 }
 
 void reverse(char line[])

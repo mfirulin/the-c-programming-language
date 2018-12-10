@@ -1,12 +1,14 @@
+/* Exercise 1-23. Write a program to remove all comments from a C program. Don't forget to
+handle quoted strings and character constants properly. C comments don't nest. */
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define MAXLINE 1000
-#define IN 1
-#define OUT 0
 
 int getline(char line[], int lim);
-void comdel(char to[], const char from[]);
+void delete_comments(char to[], const char from[]);
 
 int main(void)
 {
@@ -14,7 +16,7 @@ int main(void)
     char line[MAXLINE], line2[MAXLINE];
 
     while ((len = getline(line, MAXLINE)) > 0) {
-        comdel(line2, line);
+        delete_comments(line2, line);
         printf("%s", line2);  
     }
         
@@ -36,23 +38,27 @@ int getline(char line[], int lim)
     return i;
 }
 
-void comdel(char to[], const char from[])
+void delete_comments(char to[], const char from[])
 {
-    static int f = OUT;
+    static int in_comment = false;
+    static int in_string = false;
     int i = 0, j = 0; 
     
     while (from[i] != '\0') {
+        
+        if (from[i] == '\"')
+            in_string = !in_string;
             
-        if (f == OUT && from[i] == '/' && from[i + 1] == '*') {
-            f = IN;
+        if (!in_string && !in_comment && from[i] == '/' && from[i + 1] == '*') {
+            in_comment = true;
             i += 2;
         }
-        else if (f == IN && from[i] == '*' && from[i + 1] == '/') {
-            f = OUT;
+        else if (!in_string && in_comment && from[i] == '*' && from[i + 1] == '/') {
+            in_comment = false;
             i += 2;
         }
     
-        if (f == OUT && from[i] != '\0')
+        if (!in_comment && from[i] != '\0')
             to[j++] = from[i];
         
         if (from[i] != '\0')

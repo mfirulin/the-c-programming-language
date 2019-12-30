@@ -13,16 +13,13 @@ int main(void)
         if (c == ' ') {
             putchar('\\');
             putchar('s');
-        }
-        else if (c == '\t') {
+        } else if (c == '\t') {
             putchar('\\');
             putchar('t');
-        }
-        else if (c == '\n') {
+        } else if (c == '\n') {
             putchar('\\');
             putchar('n');
-        }
-        else
+        } else
             putchar(c);
     }
 

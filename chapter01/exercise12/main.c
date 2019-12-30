@@ -11,8 +11,7 @@ int main(void)
         if (c == ' ' || c == '\n' || c == '\t') {
             if (++n <= 1)
                 putchar('\n');
-        }
-        else {
+        } else {
             n = 0;
             putchar(c);
         }

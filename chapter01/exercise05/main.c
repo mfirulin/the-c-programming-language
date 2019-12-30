@@ -4,9 +4,9 @@ that is, from 300 degrees to 0. */
 #include <stdio.h>
 #include <stdlib.h>
 
-#define LOWER 0
-#define UPPER 300
-#define STEP 20
+#define LOWER 0 /* lower limit of table */
+#define UPPER 300 /* upper limit */
+#define STEP 20 /* step size */
 
 int main(void)
 {

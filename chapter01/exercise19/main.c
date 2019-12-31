@@ -40,10 +40,10 @@ void reverse(char line[])
 {
     int len, i = 0, j = 0;
     
-    while (line[i])
+    while (line[i]) // find end of the line
         ++i;
         
-    if (i > 0) {
+    if (i > 0) { // we are at '\n' now, so if not empty line step back
         --i;
 
         len = i / 2;

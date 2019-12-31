@@ -5,8 +5,7 @@
 
 int main(void)
 {
-    int c;
-    long s, t, nl;
+    int c, s, t, nl;
     
     s = t = nl = 0;
     
@@ -19,7 +18,7 @@ int main(void)
             ++nl;
     }
     
-    printf("spaces:%ld tabs:%ld new lines:%ld\n", s, t, nl);
+    printf("spaces:%d tabs:%d new lines:%d\n", s, t, nl);
 
     return EXIT_SUCCESS;
 }

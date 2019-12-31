@@ -9,7 +9,7 @@ int main(void)
     int c, s = 0;
     
     while ((c = getchar()) != EOF) {
-        if (c == ' ')
+        if (c == ' ' || c == '\n' || c == '\t')
             ++s;
         else
             s = 0;

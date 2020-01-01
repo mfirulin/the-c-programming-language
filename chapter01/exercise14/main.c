@@ -4,7 +4,8 @@ in its input. */
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NCHAR 26
+// ASCII: 32 ' ' ... 126 '~'
+#define NCHAR ('~' - ' ' + 1)
 
 int main(void)
 {
@@ -12,11 +13,13 @@ int main(void)
     int nchar[NCHAR] = {0};
     
     while ((c = getchar()) != EOF) {
-        if (c >= 'a' && c <= 'z') {
-            ++nchar[c - 'a'];
+        if (c >= ' ' && c <= '~') {
+            ++nchar[c - ' '];
         }
     }
     
+    // Draw horizontal bars
+    /*
     for (int i = 0; i < NCHAR; ++i) {
         putchar(i + 'a');
         
@@ -25,6 +28,28 @@ int main(void)
         
         putchar('\n');
     }
+    */
+    
+    // Draw vertical bars
+    int max = 0;
+    for (int i = 0; i < NCHAR; ++i)
+        if (nchar[i] > max)
+            max = nchar[i];
+    
+    for (int i = 0; i < max; ++i) {
+        for (int j = 0; j < NCHAR; ++j)
+            if (nchar[j] >= max - i)
+                putchar('|');
+            else
+                putchar(' ');
 
+        putchar('\n');
+    }
+    
+    for (int i = 0; i < NCHAR; ++i)
+        putchar(i + ' ');
+    
+    putchar('\n');
+    
     return EXIT_SUCCESS;
 }

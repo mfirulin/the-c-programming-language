@@ -16,9 +16,9 @@ int main(void)
         } else if (c == '\t') {
             putchar('\\');
             putchar('t');
-        } else if (c == '\n') {
+        } else if (c == '\\') {
             putchar('\\');
-            putchar('n');
+            putchar('\\');
         } else
             putchar(c);
     }
